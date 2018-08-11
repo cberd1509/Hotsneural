@@ -1,0 +1,174 @@
+{% extends "MainTemplate.html" %}
+
+{% load static %}
+
+{% block title %} Inicio | HOTS {% endblock %}
+
+{% block contenido %}
+
+
+<div class="container my-5 pt-5">
+  <div class="row mb-3">
+    <div class="col-md-2 "></div>
+    <div class="col-md-8">
+      <h1 class="text-primary text-center">Inicio | Ingreso de Datos </h1>
+      <br>
+      <p class="text-justify">A continuación, ingrese toda la información del campo a estudiar con el fin de realizar el análisis por redes neuronales. Recuerde que toda la información es requerida.</p>
+
+
+      <form action="/step2" method="post"> {% csrf_token %}
+
+        <div class="form-row">
+          
+          <div class="form-group col-md-6">
+            <label for="Area">Area de Yacimiento</label>
+
+            <div class="input-group">
+              <input type="number" class="form-control" placeholder="Área de Yacimiento" aria-label="Área de Yacimiento" aria-describedby="AreaUnits">
+              <div class="input-group-append">
+                <span class="input-group-text" id="AreaUnits">Acres</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="Porosidad">Porosidad</label>
+
+            <div class="input-group">
+              <input type="number" class="form-control" placeholder="Porosidad" aria-label="Porosidad" aria-describedby="PorosidadUnits">
+              <div class="input-group-append">
+                <span class="input-group-text" id="PorosidadUnits">%</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form-row">
+          
+          <div class="form-group col-md-6">
+            <label for="Permeabilidad">Permeabilidad</label>
+
+            <div class="input-group">
+              <input type="number" class="form-control" placeholder="Permeabilidad" aria-label="Permeabilidad" aria-describedby="PermeabilidadUnits">
+              <div class="input-group-append">
+                <span class="input-group-text" id="PermeabilidadUnits">mD</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="Profundidad">Profundidad</label>
+
+            <div class="input-group">
+              <input type="number" class="form-control" placeholder="Profundidad" aria-label="Profundidad" aria-describedby="ProfundidadUnits">
+              <div class="input-group-append">
+                <span class="input-group-text" id="ProfundidadUnits">ft</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form-row">
+          
+          <div class="form-group col-md-6">
+            <label for="GravedadAPI">Gravedad API</label>
+
+            <div class="input-group">
+              <input type="number" class="form-control" placeholder="Gravedad API" aria-label="Gravedad API" aria-describedby="GravedadAPIUnits">
+              <div class="input-group-append">
+                <span class="input-group-text" id="GravedadAPIUnits">°API</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="Viscosidad">Viscosidad</label>
+
+            <div class="input-group">
+              <input type="number" class="form-control" placeholder="Viscosidad" aria-label="Viscosidad" aria-describedby="ViscosidadUnits">
+              <div class="input-group-append">
+                <span class="input-group-text" id="ViscosidadUnits">cP</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+         <div class="form-row">
+          
+          <div class="form-group col-md-6">
+            <label for="Temperatura">Temperatura</label>
+
+            <div class="input-group">
+              <input type="number" class="form-control" placeholder="Temperatura" aria-label="Temperatura" aria-describedby="TemperaturaUnits">
+              <div class="input-group-append">
+                <span class="input-group-text" id="TemperaturaUnits">°F</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="Soi">Saturación de Aceite Inicial</label>
+
+            <div class="input-group">
+              <input type="number" class="form-control" placeholder="Saturación de Aceite Inicial" aria-label="Viscosidad" aria-describedby="SoiUnits">
+              <div class="input-group-append">
+                <span class="input-group-text" id="SoiUnits">%</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="form-row">
+          
+          <div class="form-group col-md-6">
+            <label for="EvTime">Tiempo de Evaluación</label>
+
+            <div class="input-group">
+              <input type="number" class="form-control" placeholder="Tiempo de Evaluación" aria-label="Tiempo de Evaluación" aria-describedby="EvTimeUnits">
+              <div class="input-group-append">
+                <span class="input-group-text" id="EvTimeUnits">Años</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="WellNumber">Número de pozos productores</label>
+
+            <div class="input-group">
+              <input type="number" class="form-control" placeholder="Número de Pozos Productores" aria-label="Número de Pozos Productores" aria-describedby="WellNumberUnits">
+              <div class="input-group-append">
+                <span class="input-group-text" id="WellNumber">#</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <br>
+        <div class="clearfix">
+        <button type="submit" class="btn btn-dark px-5 float-md-right">Enviar</button>
+      </div>
+      </form>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+
+  <div class="row bg-dark footerrow">
+    <div class="col-md-6">
+            <center><img class="mb-3" src="{% static 'images/LogoWellboreWhite.png' %}" height="75px"></center>
+    </div>
+    <div class="col-md-6">
+      <p class="text-muted mx-5 text-left">Wellbore Society 2018
+        <br>Felipe Consuegra, Carlos Berdugo & Eduardo Muñoz
+      <br>Universidad Industrial de Santander</p>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}
