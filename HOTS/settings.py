@@ -25,7 +25,7 @@ SECRET_KEY = '8-b+cypr#=isf^sjm$*fzzq3a-)+voollemyml$n684_vtb%c-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['hotsneural.herokuapp.com']
 
 
 # Application definition
