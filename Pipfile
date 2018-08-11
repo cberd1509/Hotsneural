@@ -9,7 +9,6 @@ django = "*"
 gunicorn = "*"
 django-heroku = "*"
 mysqlclient = "*"
-mysql-python = "*"
 [dev-packages]
 
 [requires]
