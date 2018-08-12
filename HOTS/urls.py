@@ -23,5 +23,6 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('animsition', views.animsition, name='animsition'),
     path('step2', views.processData, name='getEOR'),
+    
 
 ]
