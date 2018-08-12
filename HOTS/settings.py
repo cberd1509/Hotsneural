@@ -131,6 +131,8 @@ print("ROOT Base", STATIC_ROOT)
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, '/static/'),
-    STATIC_URL
+    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'static/css'),
+    os.path.join(BASE_DIR, 'static/images'),
+    os.path.join(BASE_DIR, 'static/js'),
 )
