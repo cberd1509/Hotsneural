@@ -23,7 +23,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 SECRET_KEY = '8-b+cypr#=isf^sjm$*fzzq3a-)+voollemyml$n684_vtb%c-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['hotsneural.herokuapp.com','127.0.0.1','hots-neural.herokuapp.com']
 
