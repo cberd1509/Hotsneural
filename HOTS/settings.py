@@ -24,7 +24,7 @@ PROJECT_DIR=os.path.dirname(__file__)
 SECRET_KEY = '8-b+cypr#=isf^sjm$*fzzq3a-)+voollemyml$n684_vtb%c-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['hotsneural.herokuapp.com','127.0.0.1','hots-neural.herokuapp.com','DjangoEnv.u8pb9ataru.sa-east-1.elasticbeanstalk.com']
 # Application definition
