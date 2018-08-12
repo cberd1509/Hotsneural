@@ -1,1 +1,1 @@
-web: gunicorn HOTS.wsgi
+web: gunicorn HOTS.wsgi  --log-file -
