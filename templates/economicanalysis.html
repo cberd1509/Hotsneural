@@ -6,168 +6,293 @@
 
 {% block contenido %}
 
+<style>
+
+.maprow
+{
+  height:300px;
+}
+</style>
+
+
 
 <div class="container my-5 pt-5">
-  <div class="row mb-3">
+  <div class="row">
     <div class="col-md-2 "></div>
     <div class="col-md-8">
-      <h1 class="text-primary text-center">Carga de información financiera | HOTS </h1>
-      <br>
-      <p class="text-justify">Con el fin de realizar una predicción financiera apropiada, es necsario que introduzcar los siguientes datos.</p>
+      <h1 class="text-primary text-center">Análisis Financiero | HOTS </h1>
+      <p> A continuación, por favor selecciona el punto de recogida y de entrega del crudo. El algoritmo de HOTS seleccionará la mejor ruta y calculará el costo de transporte del crudo. </p>
+
+    </div>
+    <div class="col-md-2 "></div>
+  </div>
 
 
-      <form action="/getEOR" method="post"> {% csrf_token %}
+  <div class="row my-3">
 
-        <div class="form-row">
-          
-          <div class="form-group col-md-6">
-            <label for="Area">Area de Yacimiento</label>
-
-            <div class="input-group">
-              <input type="number" class="form-control" placeholder="Área de Yacimiento" aria-label="Área de Yacimiento" aria-describedby="AreaUnits">
-              <div class="input-group-append">
-                <span class="input-group-text" id="AreaUnits">Acres</span>
-              </div>
-            </div>
+      <div class="col-md-6">
+        
+        <div class="row">
+          <div class="col-md-12">
+            <h3 class="text-secondary text-center">Selecciona el punto de recogida del crudo</h3>
+            <p class="text-center">Puedes seleccionar la locación haciendo click en el mapa, o utilizando la caja de texto</p>
           </div>
-
-          <div class="form-group col-md-6">
-            <label for="Porosidad">Porosidad</label>
-
-            <div class="input-group">
-              <input type="number" class="form-control" placeholder="Porosidad" aria-label="Porosidad" aria-describedby="PorosidadUnits">
-              <div class="input-group-append">
-                <span class="input-group-text" id="PorosidadUnits">%</span>
-              </div>
-            </div>
-          </div>
-
         </div>
 
-        <div class="form-row">
-          
-          <div class="form-group col-md-6">
-            <label for="Permeabilidad">Permeabilidad</label>
-
-            <div class="input-group">
-              <input type="number" class="form-control" placeholder="Permeabilidad" aria-label="Permeabilidad" aria-describedby="PermeabilidadUnits">
-              <div class="input-group-append">
-                <span class="input-group-text" id="PermeabilidadUnits">mD</span>
-              </div>
-            </div>
+        <div class="row mx-2">
+          <div class="col-md-12">
+            <input type="text" class="form-control" name="map1Search" id="map1Search" placeholder="Buscar lugar">            
+            <div class="row maprow" id="map1"> </div>
           </div>
-
-          <div class="form-group col-md-6">
-            <label for="Profundidad">Profundidad</label>
-
-            <div class="input-group">
-              <input type="number" class="form-control" placeholder="Profundidad" aria-label="Profundidad" aria-describedby="ProfundidadUnits">
-              <div class="input-group-append">
-                <span class="input-group-text" id="ProfundidadUnits">ft</span>
-              </div>
-            </div>
-          </div>
-
         </div>
 
-        <div class="form-row">
-          
-          <div class="form-group col-md-6">
-            <label for="GravedadAPI">Gravedad API</label>
-
-            <div class="input-group">
-              <input type="number" class="form-control" placeholder="Gravedad API" aria-label="Gravedad API" aria-describedby="GravedadAPIUnits">
-              <div class="input-group-append">
-                <span class="input-group-text" id="GravedadAPIUnits">°API</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group col-md-6">
-            <label for="Viscosidad">Viscosidad</label>
-
-            <div class="input-group">
-              <input type="number" class="form-control" placeholder="Viscosidad" aria-label="Viscosidad" aria-describedby="ViscosidadUnits">
-              <div class="input-group-append">
-                <span class="input-group-text" id="ViscosidadUnits">cP</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-         <div class="form-row">
-          
-          <div class="form-group col-md-6">
-            <label for="Temperatura">Temperatura</label>
-
-            <div class="input-group">
-              <input type="number" class="form-control" placeholder="Temperatura" aria-label="Temperatura" aria-describedby="TemperaturaUnits">
-              <div class="input-group-append">
-                <span class="input-group-text" id="TemperaturaUnits">°F</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group col-md-6">
-            <label for="Soi">Saturación de Aceite Inicial</label>
-
-            <div class="input-group">
-              <input type="number" class="form-control" placeholder="Saturación de Aceite Inicial" aria-label="Viscosidad" aria-describedby="SoiUnits">
-              <div class="input-group-append">
-                <span class="input-group-text" id="SoiUnits">%</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="form-row">
-          
-          <div class="form-group col-md-6">
-            <label for="EvTime">Tiempo de Evaluación</label>
-
-            <div class="input-group">
-              <input type="number" class="form-control" placeholder="Tiempo de Evaluación" aria-label="Tiempo de Evaluación" aria-describedby="EvTimeUnits">
-              <div class="input-group-append">
-                <span class="input-group-text" id="EvTimeUnits">Años</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group col-md-6">
-            <label for="WellNumber">Número de pozos productores</label>
-
-            <div class="input-group">
-              <input type="number" class="form-control" placeholder="Número de Pozos Productores" aria-label="Número de Pozos Productores" aria-describedby="WellNumberUnits">
-              <div class="input-group-append">
-                <span class="input-group-text" id="WellNumber">#</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-        <br>
-        <div class="clearfix">
-        <button type="submit" class="btn btn-dark px-5 float-md-right">Enviar</button>
       </div>
-      </form>
-    </div>
-    <div class="col-md-2"></div>
+
+      <div class="col-md-6">
+        
+        <div class="row">
+          <div class="col-md-12">
+            <h3 class="text-secondary text-center">Selecciona el punto de entrega del crudo</h3>
+            <p class="text-center">Puedes seleccionar la locación haciendo click en el mapa, o utilizando la caja de texto</p>
+          </div>
+        </div>
+
+        <div class="row mx-2">
+          <div class="col-md-12">
+            <input type="text" class="form-control" name="map2Search" id="map2Search" placeholder="Buscar lugar">            
+            <div class="row maprow" id="map2"> </div>
+          </div>
+        </div>
+
+      </div>       
+
   </div>
 
-  <div class="row bg-dark footerrow">
-    <div class="col-md-6">
-            <center><img class="mb-3" src="{% static 'images/LogoWellboreWhite.png' %}" height="75px"></center>
-    </div>
-    <div class="col-md-6">
-      <p class="text-muted mx-5 text-left">Wellbore Society 2018
-        <br>Felipe Consuegra, Carlos Berdugo & Eduardo Muñoz
-      <br>Universidad Industrial de Santander</p>
+
+    <div class="row my-3">
+    <div class="col-md-12">
+      <h3 class="text-secondary text-center">Ruta Calculada</h3>
+      <p class="text-secondary text-center">Esta es la ruta calculada por HOTS desde el punto de entrega al punto de recogida del crudo.</p>
     </div>
   </div>
+
+      <div class="row maprow" id="map3"></div>
+
+      <script>
+
+        $(window).ready(function(){
+
+          var map;
+          var map2;
+          var map3;
+          var marker1;
+          var marker2;
+
+          var directionSDisplay = new google.maps.DirectionsRenderer();
+          var directionsService = new google.maps.DirectionsService();
+
+          var Bogota = new google.maps.LatLng(4.655561, -74.098339);
+          var Reficar = new google.maps.LatLng(10.314055, -75.482601);
+
+
+          map = new google.maps.Map(document.getElementById("map1"), {
+            center: Bogota,
+            zoom: 8
+          });
+
+          map2 = new google.maps.Map(document.getElementById("map2"), {
+            center: Reficar,
+            zoom: 8
+          });
+
+          google.maps.event.addListener(map, 'click', function(event) {
+             placeMarkerMap1(event.latLng);
+          });
+
+          google.maps.event.addListener(map2, 'click', function(event) {
+             placeMarkerMap2(event.latLng);
+          });
+
+          placeMarkerMap1(Bogota);
+          placeMarkerMap2(Reficar);
+
+          var input1 = document.getElementById('map1Search');
+          var searchBox1 = new google.maps.places.SearchBox(input1);
+          map.controls[google.maps.ControlPosition.TOP_LEFT].push(input1);
+
+          searchBox1.addListener('places_changed', function() {
+            var places = searchBox1.getPlaces();
+            if(places.length!=0)
+            {
+              var place = places[0];
+              loc = place.geometry.location;
+              placeMarkerMap1(loc);
+            }
+            
+          });
+
+          var input2 = document.getElementById('map2Search');
+          var searchBox2 = new google.maps.places.SearchBox(input2);
+          map2.controls[google.maps.ControlPosition.TOP_LEFT].push(input2);
+
+          searchBox2.addListener('places_changed', function() {
+            var places = searchBox2.getPlaces();
+            if(places.length!=0)
+            {
+              var place = places[0];
+              loc = place.geometry.location;
+              placeMarkerMap2(loc);
+            }
+            
+          });
+
+
+
+          function placeMarkerMap1(location) {
+
+           if (marker1 == null)
+           {
+             marker1 = new google.maps.Marker({
+                position: location,
+                map: map
+            }); 
+           } 
+           else 
+            {   
+              marker1.setPosition(location); 
+            } 
+
+             map.panTo(location);
+             
+             if(marker1 != null && marker2 != null)
+              {
+                UpdateRouteMap();
+              }
+
+           }
+
+           function placeMarkerMap2(location) {
+
+           if (marker2 == null)
+           {
+             marker2 = new google.maps.Marker({
+                position: location,
+                map: map2
+            }); 
+           } 
+           else 
+            {   
+              marker2.setPosition(location); 
+            } 
+
+             map2.panTo(location);
+             
+             if(marker1 != null && marker2 != null)
+              {
+                UpdateRouteMap();
+              }
+
+           }
+
+           function UpdateRouteMap(){
+
+              map3 = new google.maps.Map(document.getElementById("map3"), {
+              center: marker1.position,
+              zoom: 9
+              });
+
+              var directionSDisplay = new google.maps.DirectionsRenderer();
+              var directionsService = new google.maps.DirectionsService();
+
+              directionSDisplay.setMap(map3);
+
+              var request = {
+                origin: marker1.position,
+                destination: marker2.position,
+                travelMode: 'DRIVING'
+              };
+
+
+              directionsService.route(request,function(result,status){
+                    if(status=="OK")
+                    {
+                      directionSDisplay.setDirections(result);
+                    }
+              });
+
+           }
+
+
+
+            
+
+
+            });
+
+              
+
+
+
+
+
+      /*var map;
+
+      function initMap() {
+
+        var directionSDisplay = new google.maps.DirectionsRenderer();
+        var directionsService = new google.maps.DirectionsService();
+
+        var Bogota = new google.maps.LatLng(4.655561, -74.098339)
+        var Bucaramanga = new google.maps.LatLng(7.118861, -73.118214)
+
+
+        map = new google.maps.Map(document.getElementById("map1"), {
+          center: Bogota,
+          zoom: 8
+        });
+
+        map2 = new google.maps.Map(document.getElementById("map2"), {
+          center: Bucaramanga,
+          zoom: 8
+        });
+
+        map3 = new google.maps.Map(document.getElementById("map3"), {
+          center: Bogota,
+          zoom: 7
+        });
+
+        directionSDisplay.setMap(map3);
+
+        var request = {
+          origin: Bogota,
+          destination: Bucaramanga,
+          travelMode: 'DRIVING'
+        };
+
+        directionsService.route(request,function(result,status){
+              if(status=="OK")
+              {
+                directionSDisplay.setDirections(result);
+              }
+        });
+        */
+
+      
+
+      /*function placeMarker(location) {
+          var marker = new google.maps.Marker({
+              position: location, 
+              map: map
+          });
+      }
+      */
+
+      </script>
+
+
+
 </div>
+
 
 
 

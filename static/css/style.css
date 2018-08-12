@@ -50,3 +50,8 @@ body
 {
 	background-color: #222126 !important;
 }
+
+.mapDiv
+{
+	height:300px;
+}
