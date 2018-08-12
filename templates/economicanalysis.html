@@ -17,18 +17,15 @@
 
 
 <div class="container my-5 pt-5">
-  <div class="row">
-    <div class="col-md-2 "></div>
-    <div class="col-md-8">
+  <div class="row mx-2">
+    <div class="col-md-12">
       <h1 class="text-primary text-center">Análisis Financiero | HOTS </h1>
       <p> A continuación, por favor selecciona el punto de recogida y de entrega del crudo. El algoritmo de HOTS seleccionará la mejor ruta y calculará el costo de transporte del crudo. </p>
-
     </div>
-    <div class="col-md-2 "></div>
   </div>
 
 
-  <div class="row my-3">
+  <div class="row mx-2 my-3">
 
       <div class="col-md-6">
         
@@ -77,6 +74,12 @@
   </div>
 
       <div class="row maprow" id="map3"></div>
+
+<div class="row bg-primary text-white py-3">
+    <div class="col-md-12">
+      <h4 class="text-center" id="routeLength">La ruta tiene una longitud total de 300 km</h4>
+    </div>
+  </div>
 
       <div class="row bg-dark footerrow">
     <div class="col-md-6 align-middle text-center">
@@ -228,6 +231,10 @@
                     if(status=="OK")
                     {
                       directionSDisplay.setDirections(result);
+
+                      console.log(result);
+
+                      $("#routeLength").text("La ruta tiene una longitud total de "+result.routes[0].legs[0].distance.text);
                     }
               });
 
