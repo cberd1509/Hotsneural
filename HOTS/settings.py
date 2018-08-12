@@ -24,10 +24,9 @@ PROJECT_DIR=os.path.dirname(__file__)
 SECRET_KEY = '8-b+cypr#=isf^sjm$*fzzq3a-)+voollemyml$n684_vtb%c-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['hotsneural.herokuapp.com','127.0.0.1','hots-neural.herokuapp.com','DjangoEnv.u8pb9ataru.sa-east-1.elasticbeanstalk.com']
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Application definition
 
 INSTALLED_APPS = [
@@ -72,7 +71,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'HOTS.wsgi.application'
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
