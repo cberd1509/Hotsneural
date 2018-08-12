@@ -53,12 +53,12 @@
           <entry key="Procfile" value="9" />
           <entry key="lock" value="4" />
           <entry key="py" value="102" />
-          <entry key="txt" value="129" />
+          <entry key="txt" value="145" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PLAIN_TEXT" value="168" />
+          <entry key="PLAIN_TEXT" value="184" />
           <entry key="Python" value="102" />
           <entry key="TOML file" value="43" />
         </counts>
@@ -129,7 +129,11 @@
       </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="119">
+              <caret line="7" column="60" lean-forward="true" selection-start-line="7" selection-start-column="60" selection-end-line="7" selection-end-column="60" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -266,20 +270,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1534026518036</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Añadido el requerimiento de MYSQL">
-      <created>1534028234787</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1534028234787</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Arreglado el piplock">
-      <created>1534028782455</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1534028782455</updated>
     </task>
     <task id="LOCAL-00008" summary="Arreglado el piplock">
       <created>1534028809089</created>
@@ -610,7 +600,21 @@
       <option name="project" value="LOCAL" />
       <updated>1534041013804</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Agregado procfile">
+      <created>1534041355588</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1534041355588</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Estaticos en app">
+      <created>1534041583340</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1534041583340</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -624,6 +628,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26332623" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -662,7 +667,8 @@
     <MESSAGE value="Añadido el requerimiento de MYSQL" />
     <MESSAGE value="Arreglado el piplock" />
     <MESSAGE value="Agregado procfile" />
-    <option name="LAST_COMMIT_MESSAGE" value="Agregado procfile" />
+    <MESSAGE value="Estaticos en app" />
+    <option name="LAST_COMMIT_MESSAGE" value="Estaticos en app" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Pipfile.lock">
@@ -753,7 +759,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="60" lean-forward="true" selection-start-line="7" selection-start-column="60" selection-end-line="7" selection-end-column="60" />
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
