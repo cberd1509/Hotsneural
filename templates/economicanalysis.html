@@ -236,6 +236,10 @@
 
                       $("#routeLength").text("La ruta tiene una longitud total de "+result.routes[0].legs[0].distance.text);
                     }
+                    else
+                    {
+                      $("#routeLength").text("No fue posible determinar una ruta adecuada entre estos dos puntos. Esto puede deberse a que no existe una carretera entre los dos puntos, o esta no se encunetra indexada por el servicio satelital de Google Maps"); 
+                    }
               });
 
            }
