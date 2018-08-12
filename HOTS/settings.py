@@ -24,9 +24,10 @@ PROJECT_DIR=os.path.dirname(__file__)
 SECRET_KEY = '8-b+cypr#=isf^sjm$*fzzq3a-)+voollemyml$n684_vtb%c-'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['hotsneural.herokuapp.com','127.0.0.1','hots-neural.herokuapp.com','DjangoEnv.u8pb9ataru.sa-east-1.elasticbeanstalk.com']
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # Application definition
 
 INSTALLED_APPS = [
@@ -41,6 +42,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',,
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -122,7 +124,7 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
-STATIC_ROOT= os.path.join(PROJECT_DIR,'static_media/')
+STATIC_ROOT= os.path.join(PROJECT_DIR,'statifciles')
 STATIC_URL = '/static/'
 
 print(os.path.join(BASE_DIR, 'static'))
