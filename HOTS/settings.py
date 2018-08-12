@@ -26,8 +26,6 @@ SECRET_KEY = '8-b+cypr#=isf^sjm$*fzzq3a-)+voollemyml$n684_vtb%c-'
 DEBUG = True
 
 ALLOWED_HOSTS = ['hotsneural.herokuapp.com','127.0.0.1','hots-neural.herokuapp.com','DjangoEnv.u8pb9ataru.sa-east-1.elasticbeanstalk.com']
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -65,7 +63,6 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'whitenoise.middleware.WhiteNoiseMiddleware',
             ],
         },
     },
@@ -130,4 +127,4 @@ STATIC_URL = '/static/'
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
-)
+)s
