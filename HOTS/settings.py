@@ -127,6 +127,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'files')
 STATIC_URL = '/static/'
 
 print("base dir path", BASE_DIR)
+print("ROOT Base", STATIC_ROOT)
 
 # Extra places for collectstatic to find static files.
 STATICFILES_DIRS = (
