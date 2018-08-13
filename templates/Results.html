@@ -18,22 +18,65 @@
 
 
 <div class="container my-5 pt-5">
-  <div class="row">
+  <div class="row my-3">
 
-    <div class="col-md-2"></div>
+    <div class="col-md-1"></div>
 
-    <div class="col-md-8">
+    <div class="col-md-10">
       <h1 class="text-primary text-center">Resultados | HOTS </h1>
       <p> A continuación, podrá visualizar los resultados generados por el algoritmo. Si desea, puede generar un reporte en .PDF de estos. </p>
+      <div class="my-4"></div>
+      <h2 class="text-secondary text-center my-3">Método Seleccionado: {{eorMethod}}</h2>
+      <div class="my-4"></div>
+      <p class="text-justify">{{eorDescription}}</p>
 
-      <h2 class="text-secondary text-center"> Gráfica de comportamiento de Producción</h2>
+      <h2 class="text-secondary text-center py-3"> Gráfica de comportamiento de Producción</h2>
       <canvas id="dailyProd" class="w-100 Plot"> </canvas>
 
+      <h2 class="text-secondary text-center py-3">Resultados de la Evaluación Financiera</h2>
 
-      <button type="button" id="exportIMG" class="btn btn-primary">Generar Base64</button>
+      <div class="row my-4">
+        <div class="col-md-6">
+          <h5 class="text-primary text-center">Valor Presente Neto</h5>
+          <h6 class="text-secondary text-center">{{VPN}} USD</h6>          
+        </div>
+
+        <div class="col-md-6">
+          <h5 class="text-primary text-center">Tasa Interna de Retorno</h5>
+          <h6 class="text-secondary text-center">{{TIR}} %</h6>          
+        </div>
+      </div>
+
+      <div class="row my-4">
+        <div class="col-md-6">
+          <h5 class="text-primary text-center">Payback Time</h5>
+          <h6 class="text-secondary text-center">{{PBT}} Años</h6>          
+        </div>
+
+        <div class="col-md-6">
+          <h5 class="text-primary text-center">Retorno de la Inversión</h5>
+          <h6 class="text-secondary text-center">{{ROI}}</h6>          
+        </div>
+      </div>
+
+        <form action="{% url 'getEOR' %}" method="POST">
+
+          <input type="hidden" name="imgBase64" id="imgBase64">
+
+          <input type="hidden" name="eorMethod" id="eorMethod" value="{{eorMethod}}">
+          <input type="hidden" name="eorDescription" id="eorDescription" value="{{eorDescription}}">
+          <input type="hidden" name="VPN" id="VPN" value="{{VPN}}">
+          <input type="hidden" name="TIR" id="TIR" value="{{TIR}}">
+          <input type="hidden" name="PBT" id="PBT" value="{{PBT}}">
+          <input type="hidden" name="ROI" id="ROI" value="{{ROI}}">
+
+
+          <center><button type="button" id="exportIMG" class="btn btn-dark px-5 py-2 mb-3">Generar reporte en PDF</button>
+        </form>
+
     </div>
 
-    <div class="col-md-2"></div>
+    <div class="col-md-1"></div>
 
   </div>
 
