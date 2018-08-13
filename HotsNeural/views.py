@@ -1,6 +1,11 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.http import FileResponse
+from reportlab.pdfgen import canvas
 import json
+import base64
+import reportlab
+import io
 
 def home(request):
     return render(request, 'home.html')
@@ -24,6 +29,7 @@ def processData(request):
 		WellNumber = float(Formdata.get("WellNumber",""))
 
 		#return(HttpResponse("Se obtienen valores de %f %f %f %f %f" %(Area,Porosidad,Permeabilidad,Profundidad,GravedadAPI)))
+
 		return render(request, 'economicanalysis.html',dict(prueba="prueba",prueba2="prueba2"));
 		#return("Hola Mundo")
 # Create your views here.
@@ -49,7 +55,7 @@ def forecast(request):
 def getPDF(request):
 	if request.method=="POST":
 
-		Formdata = request.POST
+		'''Formdata = request.POST
 
 		eorMethod = Formdata.get("eorMethod","")
 		eorDescription = Formdata.get("eorDescription","")
@@ -59,9 +65,28 @@ def getPDF(request):
 		ROI = Formdata.get("ROI","")
 		imgBase64 = Formdata.get("imgBase64","")
 
+		imgBase64 = imgBase64.split(",")[1]
+		imgBase64 = bytes(imgBase64,'utf-8')
+
+
+		with open("ImageToSave.jpg","wb") as fh:
+			fh.write(base64.decodebytes(imgBase64))
+
+		'''	
+
+		http_response = HttpResponse(content_type='application/pdf')
+		http_response['Content-Disposition'] = 'inline; filename="report.pdf"'
+
+		buffer = io.BytesIO()
+		p=canvas.Canvas(buffer)
+		p.drawString(100,100, "Hello World")
+
+		p.showPage()
+		p.save()
+
+		pdf = buffer.getvalue()
+		buffer.close()
+		http_response.write(pdf)
 		
 
-
-
-
-
+		return http_response

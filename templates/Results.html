@@ -59,7 +59,7 @@
         </div>
       </div>
 
-        <form action="{% url 'getPDF' %}" method="POST">
+        <form action="{% url 'getPDF' %}" method="POST" id="PDFForm">{% csrf_token %}
 
           <input type="hidden" name="imgBase64" id="imgBase64">
 
@@ -71,7 +71,7 @@
           <input type="hidden" name="ROI" id="ROI" value="{{ROI}}">
 
 
-          <center><button type="button" id="exportIMG" class="btn btn-dark px-5 py-2 mb-3">Generar reporte en PDF</button>
+          <center><button type="button" id="generateReport" class="btn btn-dark px-5 py-2 mb-3">Generar reporte en PDF</button>
         </form>
 
     </div>
@@ -168,15 +168,14 @@
               }
           }
     });
-
-
-
-
     
     
-    $("#exportIMG").click(function(){
+    $("#generateReport").click(function(){
         var Base64Chart = myChart.toBase64Image();
-        console.log(Base64Chart);
+        
+        document.getElementById("imgBase64").value = Base64Chart;
+        $("#PDFForm").submit()
+
     });
 
   });
