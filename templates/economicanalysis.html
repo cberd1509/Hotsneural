@@ -77,7 +77,22 @@
 
 <div class="row bg-primary text-white py-3">
     <div class="col-md-12">
-      <h4 class="text-center" id="routeLength">La ruta tiene una longitud total de 300 km</h4>
+      <h4 class="text-center" id="routeLength">La ruta tiene una longitud total de 300 km </h4>
+    </div>
+  </div>
+
+  <div class="row mx-2 my-3">
+    <div class="col-md-12">
+      <h1 class="text-primary text-center">Información adicional </h1>
+      <p> Para continuar, por favor llena el siguiente formulario con la información requerida </p>
+
+      <form action="{% url 'forecast' %}" method="post"> {% csrf_token %}
+
+        <div class="clearfix">
+        <button type="submit" class="btn btn-dark px-5 float-md-right">Enviar</button>
+        </div>
+
+      </form>
     </div>
   </div>
 
@@ -242,72 +257,15 @@
                     }
               });
 
-           }
-
-
-
-            
+           }            
 
 
             });
 
               
+              $(document).ready(function(){
 
-
-
-
-
-      /*var map;
-
-      function initMap() {
-
-        var directionSDisplay = new google.maps.DirectionsRenderer();
-        var directionsService = new google.maps.DirectionsService();
-
-        var Bogota = new google.maps.LatLng(4.655561, -74.098339)
-        var Bucaramanga = new google.maps.LatLng(7.118861, -73.118214)
-
-
-        map = new google.maps.Map(document.getElementById("map1"), {
-          center: Bogota,
-          zoom: 8
-        });
-
-        map2 = new google.maps.Map(document.getElementById("map2"), {
-          center: Bucaramanga,
-          zoom: 8
-        });
-
-        map3 = new google.maps.Map(document.getElementById("map3"), {
-          center: Bogota,
-          zoom: 7
-        });
-
-        directionSDisplay.setMap(map3);
-
-        var request = {
-          origin: Bogota,
-          destination: Bucaramanga,
-          travelMode: 'DRIVING'
-        };
-
-        directionsService.route(request,function(result,status){
-              if(status=="OK")
-              {
-                directionSDisplay.setDirections(result);
-              }
-        });
-        */
-
-      
-
-      /*function placeMarker(location) {
-          var marker = new google.maps.Marker({
-              position: location, 
-              map: map
-          });
-      }
-      */
+              });
 
       </script>
 

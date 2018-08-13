@@ -22,7 +22,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
     path('animsition', views.animsition, name='animsition'),
-    path('step2', views.processData, name='getEOR'),
+    path('predictEOR', views.processData, name='getEOR'),
+    path('forecast', views.forecast, name='forecast'),
     
 
 ]

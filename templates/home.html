@@ -16,7 +16,7 @@
       <p class="text-justify">A continuación, ingrese toda la información del campo a estudiar con el fin de realizar el análisis por redes neuronales. Recuerde que toda la información es requerida.</p>
 
 
-      <form action="/step2" method="post"> {% csrf_token %}
+      <form action="{% url 'getEOR' %}" method="post"> {% csrf_token %}
 
         <div class="form-row">
           
@@ -24,7 +24,7 @@
             <label for="Area">Area de Yacimiento</label>
 
             <div class="input-group">
-              <input type="number" class="form-control" placeholder="Área de Yacimiento" aria-label="Área de Yacimiento" aria-describedby="AreaUnits">
+              <input type="number" name="Area" id="Area" class="form-control" placeholder="Área de Yacimiento" aria-label="Área de Yacimiento" aria-describedby="AreaUnits" step="any" max="35" min="20" required>
               <div class="input-group-append">
                 <span class="input-group-text" id="AreaUnits">Acres</span>
               </div>
@@ -35,7 +35,7 @@
             <label for="Porosidad">Porosidad</label>
 
             <div class="input-group">
-              <input type="number" class="form-control" placeholder="Porosidad" aria-label="Porosidad" aria-describedby="PorosidadUnits">
+              <input type="number" name="Porosidad" id="Porosidad" class="form-control" placeholder="Porosidad" aria-label="Porosidad" aria-describedby="PorosidadUnits" step="any" max="35" min="20" required>
               <div class="input-group-append">
                 <span class="input-group-text" id="PorosidadUnits">%</span>
               </div>
@@ -50,7 +50,7 @@
             <label for="Permeabilidad">Permeabilidad</label>
 
             <div class="input-group">
-              <input type="number" class="form-control" placeholder="Permeabilidad" aria-label="Permeabilidad" aria-describedby="PermeabilidadUnits">
+              <input type="number" name="Permeabilidad" id="Permeabilidad"  class="form-control" placeholder="Permeabilidad" aria-label="Permeabilidad" aria-describedby="PermeabilidadUnits" step="any" max="35" min="20" required>
               <div class="input-group-append">
                 <span class="input-group-text" id="PermeabilidadUnits">mD</span>
               </div>
@@ -61,7 +61,7 @@
             <label for="Profundidad">Profundidad</label>
 
             <div class="input-group">
-              <input type="number" class="form-control" placeholder="Profundidad" aria-label="Profundidad" aria-describedby="ProfundidadUnits">
+              <input type="number" class="form-control" name="Profundidad" id="Profundidad"  placeholder="Profundidad" aria-label="Profundidad" aria-describedby="ProfundidadUnits" step="any" max="35" min="20" required>
               <div class="input-group-append">
                 <span class="input-group-text" id="ProfundidadUnits">ft</span>
               </div>
@@ -76,7 +76,7 @@
             <label for="GravedadAPI">Gravedad API</label>
 
             <div class="input-group">
-              <input type="number" class="form-control" placeholder="Gravedad API" aria-label="Gravedad API" aria-describedby="GravedadAPIUnits">
+              <input type="number" class="form-control" name="GravedadAPI" id="GravedadAPI" placeholder="Gravedad API" aria-label="Gravedad API" aria-describedby="GravedadAPIUnits" step="any" max="35" min="20" required>
               <div class="input-group-append">
                 <span class="input-group-text" id="GravedadAPIUnits">°API</span>
               </div>
@@ -87,7 +87,7 @@
             <label for="Viscosidad">Viscosidad</label>
 
             <div class="input-group">
-              <input type="number" class="form-control" placeholder="Viscosidad" aria-label="Viscosidad" aria-describedby="ViscosidadUnits">
+              <input type="number" class="form-control" name="Viscosidad" id="Viscosidad"  placeholder="Viscosidad" aria-label="Viscosidad" aria-describedby="ViscosidadUnits" step="any" max="35" min="20" required>
               <div class="input-group-append">
                 <span class="input-group-text" id="ViscosidadUnits">cP</span>
               </div>
@@ -102,7 +102,7 @@
             <label for="Temperatura">Temperatura</label>
 
             <div class="input-group">
-              <input type="number" class="form-control" placeholder="Temperatura" aria-label="Temperatura" aria-describedby="TemperaturaUnits">
+              <input type="number" class="form-control" name="Temperatura" id="Temperatura"  placeholder="Temperatura" aria-label="Temperatura" aria-describedby="TemperaturaUnits" step="any" max="35" min="20" required>
               <div class="input-group-append">
                 <span class="input-group-text" id="TemperaturaUnits">°F</span>
               </div>
@@ -113,7 +113,7 @@
             <label for="Soi">Saturación de Aceite Inicial</label>
 
             <div class="input-group">
-              <input type="number" class="form-control" placeholder="Saturación de Aceite Inicial" aria-label="Viscosidad" aria-describedby="SoiUnits">
+              <input type="number" class="form-control" name="Soi" id="Soi"  placeholder="Saturación de Aceite Inicial" aria-label="Viscosidad" aria-describedby="SoiUnits" step="any" max="35" min="20" required>
               <div class="input-group-append">
                 <span class="input-group-text" id="SoiUnits">%</span>
               </div>
@@ -128,7 +128,7 @@
             <label for="EvTime">Tiempo de Evaluación</label>
 
             <div class="input-group">
-              <input type="number" class="form-control" placeholder="Tiempo de Evaluación" aria-label="Tiempo de Evaluación" aria-describedby="EvTimeUnits">
+              <input type="number" class="form-control" name="EvTime" id="EvTime"  placeholder="Tiempo de Evaluación" aria-label="Tiempo de Evaluación" aria-describedby="EvTimeUnits" max="35" min="20" required>
               <div class="input-group-append">
                 <span class="input-group-text" id="EvTimeUnits">Años</span>
               </div>
@@ -139,7 +139,7 @@
             <label for="WellNumber">Número de pozos productores</label>
 
             <div class="input-group">
-              <input type="number" class="form-control" placeholder="Número de Pozos Productores" aria-label="Número de Pozos Productores" aria-describedby="WellNumberUnits">
+              <input type="number" class="form-control" name="WellNumber" id="WellNumber"  placeholder="Número de Pozos Productores" aria-label="Número de Pozos Productores" aria-describedby="WellNumberUnits" max="35" min="20" required>
               <div class="input-group-append">
                 <span class="input-group-text" id="WellNumber">#</span>
               </div>
