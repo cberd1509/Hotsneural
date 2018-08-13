@@ -28,6 +28,9 @@
 
       <h2 class="text-secondary text-center"> Gráfica de comportamiento de Producción</h2>
       <canvas id="dailyProd" class="w-100 Plot"> </canvas>
+
+
+      <button type="button" id="exportIMG" class="btn btn-primary">Generar Base64</button>
     </div>
 
     <div class="col-md-2"></div>
@@ -121,6 +124,16 @@
                   }]
               }
           }
+    });
+
+
+
+
+    
+    
+    $("#exportIMG").click(function(){
+        var Base64Chart = myChart.toBase64Image();
+        console.log(Base64Chart);
     });
 
   });
