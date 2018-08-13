@@ -46,5 +46,22 @@ def forecast(request):
 
 		return render(request, 'Results.html',dict(DailyProd=jsonArray, eorMethod=eorMethod, eorDescription=eorDescription, VPN=VPN, TIR=TIR, PBT=PBT, ROI=ROI));
 
+def getPDF(request):
+	if request.method=="POST":
+
+		Formdata = request.POST
+
+		eorMethod = Formdata.get("eorMethod","")
+		eorDescription = Formdata.get("eorDescription","")
+		VPN = Formdata.get("VPN","")
+		TIR = Formdata.get("TIR","")
+		PBT = Formdata.get("PBT","")
+		ROI = Formdata.get("ROI","")
+		imgBase64 = Formdata.get("imgBase64","")
+
+		
+
+
+
 
 

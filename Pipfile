@@ -10,6 +10,8 @@ gunicorn = "*"
 django-heroku = "*"
 mysqlclient = "*"
 whitenoise = "*"
+pillow = "*"
+reportlab = "*"
 
 [dev-packages]
 

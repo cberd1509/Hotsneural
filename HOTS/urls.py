@@ -24,6 +24,7 @@ urlpatterns = [
     path('animsition', views.animsition, name='animsition'),
     path('predictEOR', views.processData, name='getEOR'),
     path('forecast', views.forecast, name='forecast'),
+    path('getPDF', views.getPDF, name='getPDF'),
     
 
 ]
