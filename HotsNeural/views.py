@@ -1,11 +1,19 @@
 from django.shortcuts import render
+from django.contrib.staticfiles.templatetags.staticfiles import static
 from django.http import HttpResponse
 from django.http import FileResponse
 from reportlab.pdfgen import canvas
+from reportlab.lib.units import inch
+from reportlab.lib.pagesizes import letter
+from reportlab.lib.utils import ImageReader
+from reportlab.pdfbase import pdfmetrics
+from reportlab.pdfbase.ttfonts import TTFont
+import time
 import json
 import base64
 import reportlab
 import io
+
 
 def home(request):
     return render(request, 'home.html')
@@ -55,7 +63,9 @@ def forecast(request):
 def getPDF(request):
 	if request.method=="POST":
 
-		'''Formdata = request.POST
+		ts = int(time.time())
+
+		Formdata = request.POST
 
 		eorMethod = Formdata.get("eorMethod","")
 		eorDescription = Formdata.get("eorDescription","")
@@ -69,17 +79,38 @@ def getPDF(request):
 		imgBase64 = bytes(imgBase64,'utf-8')
 
 
-		with open("ImageToSave.jpg","wb") as fh:
+		with open("static/plots/%s.png"%ts,"wb") as fh:
 			fh.write(base64.decodebytes(imgBase64))
-
-		'''	
-
+		
+			
 		http_response = HttpResponse(content_type='application/pdf')
-		http_response['Content-Disposition'] = 'inline; filename="report.pdf"'
-
+		http_response['Content-Disposition'] = 'attachment; filename="%s.pdf"'%ts
 		buffer = io.BytesIO()
-		p=canvas.Canvas(buffer)
-		p.drawString(100,100, "Hello World")
+		p=canvas.Canvas(buffer, pagesize=letter)
+		
+
+		im = ImageReader('static/images/templateBase.jpg')
+
+		p.drawImage(im,x=0,y=0,width=8.5*inch, height=11*inch)
+
+		im = ImageReader('static/plots/%s.png'%ts)
+		p.drawImage(im,x=0.454*inch,y=3.971*inch,width=7.592*inch, height=3.796*inch, mask='auto')
+
+		pdfmetrics.registerFont(TTFont('Bebas', 'static/fonts/BebasNeue.ttf'))
+		pdfmetrics.registerFont(TTFont('Flama', 'static/fonts/Flama.ttf'))
+
+		
+		p.setFont('Bebas',29)
+		p.drawRightString( 8.165*inch , 8.46*inch, eorMethod)
+
+		p.setFont('Flama',12)
+		p.drawCentredString( 4.686*inch , 3.061*inch, VPN) #Valor Presente Neto
+		p.drawCentredString( 4.686*inch , 2.66*inch, TIR) #Tasa Interna de Retorno
+		p.drawCentredString( 4.686*inch , 2.243*inch, PBT) #Payback Time
+		p.drawCentredString( 4.686*inch , 1.824*inch, ROI) #Retorno a la Inversión
+		p.drawCentredString( 4.686*inch , 1.417*inch, "180000") #Producción Acumulada
+
+
 
 		p.showPage()
 		p.save()
@@ -87,6 +118,6 @@ def getPDF(request):
 		pdf = buffer.getvalue()
 		buffer.close()
 		http_response.write(pdf)
-		
+
 
 		return http_response
