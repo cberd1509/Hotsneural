@@ -69,6 +69,7 @@
           <input type="hidden" name="TIR" id="TIR" value="{{TIR}}">
           <input type="hidden" name="PBT" id="PBT" value="{{PBT}}">
           <input type="hidden" name="ROI" id="ROI" value="{{ROI}}">
+          <input type="hidden" name="ProdAcum" id="ProdAcum">
 
 
           <center><button type="button" id="generateReport" class="btn btn-dark px-5 py-2 mb-3">Generar reporte en PDF</button>
@@ -196,6 +197,8 @@
         A = A+YearProd*365;
         CumulativeArray.push(A);
      } 
+
+     $("#ProdAcum").val(A);
 
      return CumulativeArray;
   }

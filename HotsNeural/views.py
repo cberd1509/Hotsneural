@@ -73,6 +73,7 @@ def getPDF(request):
 		TIR = Formdata.get("TIR","")
 		PBT = Formdata.get("PBT","")
 		ROI = Formdata.get("ROI","")
+		ProdAcum = Formdata.get("ProdAcum","")
 		imgBase64 = Formdata.get("imgBase64","")
 
 		imgBase64 = imgBase64.split(",")[1]
@@ -108,7 +109,7 @@ def getPDF(request):
 		p.drawCentredString( 4.686*inch , 2.66*inch, TIR) #Tasa Interna de Retorno
 		p.drawCentredString( 4.686*inch , 2.243*inch, PBT) #Payback Time
 		p.drawCentredString( 4.686*inch , 1.824*inch, ROI) #Retorno a la Inversión
-		p.drawCentredString( 4.686*inch , 1.417*inch, "180000") #Producción Acumulada
+		p.drawCentredString( 4.686*inch , 1.417*inch, ProdAcum) #Producción Acumulada
 
 
 
