@@ -15,7 +15,6 @@ reportlab = "*"
 keras = "*"
 tensorflow = "*"
 scikit-learn = "*"
-tensorflow= "*"
 
 [dev-packages]
 
