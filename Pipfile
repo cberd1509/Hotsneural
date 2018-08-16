@@ -12,6 +12,8 @@ mysqlclient = "*"
 whitenoise = "*"
 pillow = "*"
 reportlab = "*"
+keras = "*"
+tensorflow = "*"
 
 [dev-packages]
 
