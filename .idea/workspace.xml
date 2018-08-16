@@ -17,7 +17,7 @@
     <session id="1459097380">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="9" />
+          <entry key="project.closed" value="10" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.open.time.6" value="2" />
@@ -284,20 +284,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1534026518036</updated>
-    </task>
-    <task id="LOCAL-00030" summary="Agregado procfile">
-      <created>1534033017371</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1534033017371</updated>
-    </task>
-    <task id="LOCAL-00031" summary="Agregado procfile">
-      <created>1534033162886</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1534033162886</updated>
     </task>
     <task id="LOCAL-00032" summary="Agregado procfile">
       <created>1534033230884</created>
@@ -628,7 +614,21 @@
       <option name="project" value="LOCAL" />
       <updated>1534219638281</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="Generacion de PDF">
+      <created>1534220405164</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1534220405164</updated>
+    </task>
+    <task id="LOCAL-00080" summary="Generacion de PDF">
+      <created>1534220523431</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1534220523431</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -641,8 +641,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="848" extended-state="7" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="848" extended-state="6" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3489933" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />

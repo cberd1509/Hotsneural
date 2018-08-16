@@ -84,12 +84,117 @@
   <div class="row mx-2 my-3">
     <div class="col-md-12">
       <h1 class="text-primary text-center">Información adicional </h1>
-      <p> Para continuar, por favor llena el siguiente formulario con la información requerida </p>
+      <p> Para continuar, por favor llena el siguiente formulario con la información requerida con el fin de realizar el análisis financiero</p>
+
 
       <form action="{% url 'forecast' %}" method="post"> {% csrf_token %}
 
-        <div class="clearfix">
+        <!--Area de Hidden Inptus 
+
+        return render(request, 'economicanalysis.html',dict(EOR=EOR,MetodoOHE=OHE_EOR,Area=Area,Porosidad=Porosidad,Permeabilidad=Permeabilidad,Profundidad=Profundidad,GravedadAPI=GravedadAPI,Viscosidad=Viscosidad,Temperatura=Temperatura,Soi=Soi,PYac=PYac,WellNumber=WellNumber,Espesor=Espesor,InyWellNumber=InyWellNumber));
+
+        -->
+
+
+        <input type="hidden" name="Area" value="{{Area}}">
+        <input type="hidden" name="Porosidad" value="{{Porosidad}}">
+        <input type="hidden" name="Permeabilidad" value="{{Permeabilidad}}">
+        <input type="hidden" name="Profundidad" value="{{Profundidad}}">
+        <input type="hidden" name="GravedadAPI" value="{{GravedadAPI}}">
+        <input type="hidden" name="Viscosidad" value="{{Viscosidad}}">
+        <input type="hidden" name="Temperatura" value="{{Temperatura}}">
+        <input type="hidden" name="Soi" value="{{Soi}}">
+        <input type="hidden" name="PYac" value="{{PYac}}">
+        <input type="hidden" name="WellNumber" value="{{WellNumber}}">
+        <input type="hidden" name="Espesor" value="{{Espesor}}">
+        <input type="hidden" name="InyWellNumber" value="{{InyWellNumber}}">
+        <input type="hidden" name="EORMethod" value="{{EOR}}">        
+
+        <div class="form-row">
+
+        <div class="form-group col-md-6">
+            <label for="tripDistance">Distancia de Entrega</label>
+
+            <div class="input-group">
+              <input type="number" name="tripDistance" id="tripDistance" class="form-control" placeholder="Distancia de viaje" aria-label="Distancia de Viaje" aria-describedby="tripDistanceUnits" step="any" min="0" required>
+              <div class="input-group-append">
+                <span class="input-group-text" id="tripDistanceUnits">km</span>
+              </div>
+            </div>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="bblCost">Costo de Barril</label>
+
+            <div class="input-group">
+              <input type="number" name="bblCost" id="bblCost" class="form-control" placeholder="Precio de referencia" aria-label="Precio de Referencia" aria-describedby="bblCostUnits" step="any" min="0" required>
+              <div class="input-group-append">
+                <span class="input-group-text" id="tripDistanceUnits">USD</span>
+              </div>
+            </div>
+        </div>
+
+        </div>
+
+
+        <div class="form-row">
+
+        <div class="form-group col-md-6">
+            <label for="liftingCost">Lifting Cost</label>
+
+            <div class="input-group">
+              <input type="number" name="liftingCost" id="liftingCost" class="form-control" placeholder="Lifting Cost" aria-label="Lifting Cost" aria-describedby="liftingCostUnits" step="any" min="0" required>
+              <div class="input-group-append">
+                <span class="input-group-text" id="liftingCostUnits">USD</span>
+              </div>
+            </div>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="wsFreq">Frecuencia de Well Service</label>
+
+            <div class="input-group">
+              <input type="number" name="wsFreq" id="wsFreq" class="form-control" placeholder="Frecuencia de Well Service" aria-label="Frecuencia de Well Service" aria-describedby="wsFreqUnits" step="any" min="0" value="4" required>
+              <div class="input-group-append">
+                <span class="input-group-text" id="wsFreqUnits">Años</span>
+              </div>
+            </div>
+        </div>
+
+        </div>
+
+        <div class="form-row">
+
+        <div class="form-group col-md-6">
+            <label for="tInteres">Tasa de Interes</label>
+
+            <div class="input-group">
+              <input type="number" name="tInteres" id="tInteres" class="form-control" placeholder="Tasa de Interes" aria-label="Tasa de Interes" aria-describedby="tInteresUnits" step="any" min="0" value="0.1" required>
+              <div class="input-group-append">
+                <span class="input-group-text" id="tInteresUnits">Fracción</span>
+              </div>
+            </div>
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="wsCost">Costo de Well Service</label>
+
+            <div class="input-group">
+              <input type="number" name="wsCost" id="wsCost" class="form-control" placeholder="Costo de Well Service" aria-label="Costo de Well Service" aria-describedby="wsCostUnits" step="any" min="0" value="100000" required>
+              <div class="input-group-append">
+                <span class="input-group-text" id="wsCostUnits">USD</span>
+              </div>
+            </div>
+        </div>
+
+        </div>
+
+
+
+        <div class="form-row clearfix">
+          <div class="col-md-12">
         <button type="submit" class="btn btn-dark px-5 float-md-right">Enviar</button>
+      </div>
         </div>
 
       </form>
@@ -250,10 +355,13 @@
                       console.log(result);
 
                       $("#routeLength").text("La ruta tiene una longitud total de "+result.routes[0].legs[0].distance.text);
+                      $("#tripDistance").val(result.routes[0].legs[0].distance.value/1000)
                     }
                     else
                     {
-                      $("#routeLength").text("No fue posible determinar una ruta adecuada entre estos dos puntos. Esto puede deberse a que no existe una carretera entre los dos puntos, o esta no se encunetra indexada por el servicio satelital de Google Maps"); 
+                      $("#routeLength").text("No fue posible determinar una ruta adecuada entre estos dos puntos. Esto puede deberse a que no existe una carretera entre los dos puntos, o esta no se encunetra indexada por el servicio satelital de Google Maps. Puedes introducir el valor de distancia de viaje de forma manual"); 
+
+                      $("#tripDistance").val(0)
                     }
               });
 

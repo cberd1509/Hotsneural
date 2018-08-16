@@ -26,7 +26,7 @@
       <h1 class="text-primary text-center">Resultados | HOTS </h1>
       <p> A continuación, podrá visualizar los resultados generados por el algoritmo. Si desea, puede generar un reporte en .PDF de estos. </p>
       <div class="my-4"></div>
-      <h2 class="text-secondary text-center my-3">Método Seleccionado: {{eorMethod}}</h2>
+      <h2 class="text-secondary text-center my-3">Método Seleccionado: {{EORMethod}}</h2>
       <div class="my-4"></div>
       <p class="text-justify">{{eorDescription}}</p>
 
@@ -47,28 +47,31 @@
         </div>
       </div>
 
-      <div class="row my-4">
-        <div class="col-md-6">
-          <h5 class="text-primary text-center">Payback Time</h5>
-          <h6 class="text-secondary text-center">{{PBT}} Años</h6>          
-        </div>
+     <div class="row my-4">
 
         <div class="col-md-6">
-          <h5 class="text-primary text-center">Retorno de la Inversión</h5>
-          <h6 class="text-secondary text-center">{{ROI}}</h6>          
+          <h5 class="text-primary text-center">Relación Costo Beneficio</h5>
+          <h6 class="text-secondary text-center">{{BCR}}</h6>          
         </div>
-      </div>
+    
+
+
+        <div class="col-md-6">         
+        </div>
+          </div>
+
+
 
         <form action="{% url 'getPDF' %}" method="POST" id="PDFForm">{% csrf_token %}
 
           <input type="hidden" name="imgBase64" id="imgBase64">
 
-          <input type="hidden" name="eorMethod" id="eorMethod" value="{{eorMethod}}">
+          <input type="hidden" name="eorMethod" id="eorMethod" value="{{EORMethod}}">
           <input type="hidden" name="eorDescription" id="eorDescription" value="{{eorDescription}}">
           <input type="hidden" name="VPN" id="VPN" value="{{VPN}}">
           <input type="hidden" name="TIR" id="TIR" value="{{TIR}}">
-          <input type="hidden" name="PBT" id="PBT" value="{{PBT}}">
-          <input type="hidden" name="ROI" id="ROI" value="{{ROI}}">
+          <input type="hidden" name="BCR" id="BCR" value="{{BCR}}">
+          <input type="hidden" name="tripDistance" id="tripDistance" value="{{tripDistance}}">
           <input type="hidden" name="ProdAcum" id="ProdAcum">
 
 
@@ -103,14 +106,11 @@
 
     var Datos = "{{DailyProd}}";
     console.log(Datos);
-    Datos = jQuery.parseJSON( Datos );
+    Datos = jQuery.parseJSON( Datos )[0];
 
     DataCumulative = getCumulativeProduction(Datos);
 
     var chart1 = document.getElementById("dailyProd").getContext('2d');
-
-
-
 
     var myChart = new Chart(chart1, {
         type: 'line',
